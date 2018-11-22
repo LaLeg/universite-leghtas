@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Ajout Etudiant</title>
+</head>
+<body>
+<form th:action="@{add-etudiant}"method="POST" th:object="${ajoutEtudiant}">
+<input type="text"
+			th:field="*{id}" placeholder="id" id="id" hidden=""/><br>
+<label for="numEtudiant">N° Etudiant : </label> <input type="text"
+			th:field="*{numEtudiant}" placeholder="numEtudiant" id="numEtudiant" /><br>
+<label for="nom">Nom : </label> <input type="text"
+			th:field="*{nom}" placeholder="nom" id="nom" /><br>
+<label for="prenom">Prénom : </label> <input type="text"
+			th:field="*{prenom}" placeholder="prenom" id="prenom" /><br>
+<label for="dateNaissance">Date de naissance : </label> <input type="text"
+			th:field="*{dateNaissance}" placeholder="dateNaissance" id="dateNaissance" /><br>
+<label for="sexe">Sexe : </label> <input type="text"
+			th:field="*{sexe}" placeholder="sexe" id="sexe" /><br>
+			<input type="submit" value="Ajouter"/>
+</form>
+
+</body>
+</html>

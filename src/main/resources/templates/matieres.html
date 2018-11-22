@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Matieres</title>
+<link rel="stylesheet" type="text/css" th:href="@{css/matieres.css}">
+</head>
+<body>
+	<table>
+		<tr>
+			<th>ID</th>
+			<th>N° Matière</th>
+			<th>Nom</th>
+			<th>Coef</th>
+			<th>Date Début</th>
+			<th>Date Fin</th>
+			<th>Nom Enseignant</th>
+			<th>Prénom Enseignant</th>
+			<th>Infos-Matière</th>
+			<th>Modifier</th>
+
+
+
+		</tr>
+		<tr th:each="var : ${matieres}">
+
+			<td th:text="${var.id}"></td>
+			<td th:text="${var.numMatiere}"></td>
+			<td th:text="${var.nom}"></td>
+			<td th:text="${var.coef}"></td>
+			<td th:text="${var.dateDebut}"></td>
+			<td th:text="${var.dateFin}"></td>
+			<td th:text="${var.enseignant.nom}"></td>
+			<td th:text="${var.enseignant.prenom}"></td>
+			<td><a th:href="@{matiere-infos(id=${var.id})}">Infos-Matière</a></td>
+			<td><a th:href="@{modifForm-matiere(id=${var.id})}">Modifier</a></td>
+
+
+
+		</tr>
+
+	</table>
+	<a th:href="@{ajout-matiere}">Ajouter une Matière</a>
+
+</body>
+</html>

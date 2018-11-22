@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Etudiants</title>
+<link rel="stylesheet" type="text/css" th:href="@{css/etudiants.css}">
+</head>
+<body>
+	<table>
+		<tr>
+			<th>ID</th>
+			<th>N° Etudiants</th>
+			<th>Nom</th>
+			<th>Prenom</th>
+			<th>Date de Naissance</th>
+			<th>Sexe</th>
+			<th>Etudiant-Infos</th>
+			<th>Supprimer</th>
+			<th>Modifier</th>
+
+
+		</tr>
+		<tr th:each="var : ${etudiants}">
+
+			<td th:text="${var.id}"></td>
+			<td th:text="${var.numEtudiant}"></td>
+			<td th:text="${var.nom}"></td>
+			<td th:text="${var.prenom}"></td>
+			<td th:text="${var.dateNaissance}"></td>
+			<td th:text="${var.sexe}"></td>
+			<td><a th:href="@{etudiant-infos(id=${var.id})}">Etudiant-Infos</a></td>
+			<td><a th:href="@{supprimerEtudiant(id=${var.id})}">Supprimer</a></td>
+			<td><a th:href="@{modifierEtudiant(id=${var.id})}">Modifier</a></td>
+			
+
+		</tr>
+	</table>
+	<a th:href="@{ajout-etudiant}">Ajouter un Etudiant</a>
+
+</body>
+</html>

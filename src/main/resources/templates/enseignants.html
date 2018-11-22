@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Enseignants</title>
+<link rel="stylesheet" type="text/css" th:href="@{css/enseignants.css}">
+</head>
+<body>
+<table>
+		<tr>
+			<th>ID</th>
+			<th>N° Enseignant</th>
+			<th>Nom</th>
+			<th>Prenom</th>
+			<th>Date de Naissance</th>
+			<th>Sexe</th>
+			<th>Grade</th>
+			<th>Date d'Embauche</th>
+			<th>Enseignant Infos</th>
+			<th>Supprimer</th>
+			
+		</tr>
+		<tr th:each="var : ${enseignants}">
+			<td th:text="${var.id}"></td>
+			<td th:text="${var.numEnseignant}"></td>
+			<td th:text="${var.nom}"></td>
+			<td th:text="${var.prenom}"></td>
+			<td th:text="${var.dateNaissance}"></td>
+			<td th:text="${var.sexe}"></td>
+			<td th:text="${var.grade}"></td>
+			<td th:text="${var.dateEmbauche}"></td>
+			<td><a th:href="@{enseignant-infos(id=${var.id})}">Enseignant-Infos</a></td>
+			<td><a th:href="@{supprimerEnseignant(id=${var.id})}">Supprimer</a></td>
+		</tr>
+	</table>
+	<a th:href="@{ajout-enseignant}">Ajouter un enseignant</a>
+</body>
+</html>

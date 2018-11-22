@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Formulaire Modif Matiere</title>
+<link rel="stylesheet" type="text/css" th:href="@{css/formulaire.css}">
+</head>
+<body>
+	<div class="form-style-5">
+		<form th:action="@{modifier-matiere}" method="POST"
+			th:object="${modifFormMatiere}">
+			<input type="text" th:field="*{id}" placeholder="id" id="id"
+				hidden="" /><br> <label for="numMatiere">N° Matiere :
+			</label> <input type="text" th:field="*{numMatiere}" placeholder="numMatiere"
+				id="numMatiere" /><br> <label for="nom">Nom : </label> <input
+				type="text" th:field="*{nom}" placeholder="nom" id="nom" /><br>
+			<label for="coef">Coef : </label> <input type="text"
+				th:field="*{coef}" placeholder="coef" id="coef" /><br> <label
+				for="dateDebut">Date Début : </label> <input type="text"
+				th:field="*{dateDebut}" placeholder="dateDebut" id="dateDebut" /><br>
+			<label for="dateFin">Date Fin : </label> <input type="text"
+				th:field="*{dateFin}" placeholder="dateFin" id="dateFin" /><br>
+			<select name="idenseignant">
+				<option th:each="e : ${enseignants}"
+					th:text="${e.nom + ' ' + e.prenom}" th:value="${e.id}"></option>
+			</select> <br /> <input type="submit" value=valider />
+		</form>
+	</div>
+</body>
+</html>
