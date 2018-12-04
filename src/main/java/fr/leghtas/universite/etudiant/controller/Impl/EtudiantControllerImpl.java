@@ -19,6 +19,8 @@ public class EtudiantControllerImpl implements IEtudiantController {
 	@Autowired
 	private IEtudiantBuisiness etudiantBuisiness;
 
+	public static final String REDIRECT_ETUDIANTS = "redirect:/etudiants";
+
 	@Override
 	@RequestMapping("/etudiants")
 	public String afficherEtudiants(Model model) {
@@ -52,7 +54,7 @@ public class EtudiantControllerImpl implements IEtudiantController {
 	public String addEtudiant(Model model, @ModelAttribute Etudiant etudiant) {
 		etudiantBuisiness.saveEtudiant(etudiant);
 
-		return "redirect:/etudiants";
+		return REDIRECT_ETUDIANTS;
 	}
 
 	@Override
@@ -60,7 +62,7 @@ public class EtudiantControllerImpl implements IEtudiantController {
 	public String supprimerEtudiant(Model model, @RequestParam Integer id) {
 		etudiantBuisiness.supprimerEtudiant(id);
 		// TODO Auto-generated method stub
-		return "redirect:/etudiants";
+		return REDIRECT_ETUDIANTS;
 	}
 
 	@Override
@@ -77,7 +79,7 @@ public class EtudiantControllerImpl implements IEtudiantController {
 	public String modifEtudiant(Model model, @ModelAttribute Etudiant etudiant) {
 		etudiantBuisiness.saveEtudiant(etudiant);
 		// TODO Auto-generated method stub
-		return "redirect:/etudiants";
+		return REDIRECT_ETUDIANTS;
 	}
 
 }

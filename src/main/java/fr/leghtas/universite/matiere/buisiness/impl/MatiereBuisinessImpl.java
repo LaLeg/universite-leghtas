@@ -21,37 +21,43 @@ public class MatiereBuisinessImpl implements IMatiereBuisiness {
 	private IEnseignantBuisiness enseignantBisness;
 
 	@Override
-	public List<Matiere> afficherMatieres() {
-		List<Matiere> listeMatieres = matiereRepository.findAll();
-		// TODO Auto-generated method stub
-		return listeMatieres;
+	public List<Matiere> findAllMatieres() {
+		List<Matiere> liste = matiereRepository.findAll();
+		return liste;
 	}
 
 	@Override
-	public Matiere getMatiere(Integer id) {
+	public Matiere saveMatiere(Matiere matiere) {
+		return matiereRepository.save(matiere);
+	}
+
+	@Override
+	public Matiere updateMatiere(Matiere matiere) {
+		return matiereRepository.save(matiere);
+	}
+
+	@Override
+	public Matiere getMatiereByID(Integer id) {
 		Matiere infosMatiere = matiereRepository.getOne(id);
 
 		return infosMatiere;
 	}
 
 	@Override
-	public List<Enseignant> findAllEnseignants() {
-		List<Enseignant> liste = enseignantBisness.getEnseignants();
-		return liste;
-	}
-
-	@Override
-	public void saveMatiere(Matiere matiere) {
-		matiereRepository.save(matiere);
-		// TODO Auto-generated method stub
-
+	public void deleteMatiere(Integer id) {
+		matiereRepository.deleteById(id);
 	}
 
 	@Override
 	public Enseignant getEnseignantByID(Integer idenseignant) {
 		Enseignant e = enseignantBisness.getEnseignant(idenseignant);
-
 		return e;
+	}
+
+	@Override
+	public List<Enseignant> findAllEnseignants() {
+		// TODO Auto-generated method stub
+		return enseignantBisness.getEnseignants();
 	}
 
 }

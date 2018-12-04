@@ -25,7 +25,7 @@ public class MatiereControllerImpl implements IMatiereController {
 	@Override
 	@RequestMapping("/matieres")
 	public String afficherMatieres(Model model) {
-		List<Matiere> listeMatieres = matiereBuisiness.afficherMatieres();
+		List<Matiere> listeMatieres = matiereBuisiness.findAllMatieres();
 
 		model.addAttribute("matieres", listeMatieres);
 
@@ -35,7 +35,7 @@ public class MatiereControllerImpl implements IMatiereController {
 	@Override
 	@RequestMapping("/matiere-infos")
 	public String getMatiere(Model model, @RequestParam Integer id) {
-		Matiere infosMatiere = matiereBuisiness.getMatiere(id);
+		Matiere infosMatiere = matiereBuisiness.getMatiereByID(id);
 		model.addAttribute("infosMatiere", infosMatiere);
 
 		return "infos-matiere";
@@ -65,7 +65,7 @@ public class MatiereControllerImpl implements IMatiereController {
 	@Override
 	@RequestMapping("/modifForm-matiere")
 	public String modifFormMatiere(Model model, @RequestParam Integer id) {
-		Matiere matiere = matiereBuisiness.getMatiere(id);
+		Matiere matiere = matiereBuisiness.getMatiereByID(id);
 		model.addAttribute("modifFormMatiere", matiere);
 
 		List<Enseignant> enseignants = matiereBuisiness.findAllEnseignants();

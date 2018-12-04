@@ -11,7 +11,6 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import fr.leghtas.universite.matiere.domain.Matiere;
-import fr.leghtas.universite.note.domain.Note;
 
 @Entity
 @Table(name = "t_enseignant")
@@ -44,9 +43,6 @@ public class Enseignant {
 
 	@OneToMany(mappedBy = "enseignant")
 	List<Matiere> matieres;
-
-	@OneToMany
-	private List<Note> notes;
 
 	public Enseignant() {
 		super();
@@ -129,6 +125,14 @@ public class Enseignant {
 
 	public void setDateEmbauche(String dateEmbauche) {
 		this.dateEmbauche = dateEmbauche;
+	}
+
+	public List<Matiere> getMatieres() {
+		return matieres;
+	}
+
+	public void setMatieres(List<Matiere> matieres) {
+		this.matieres = matieres;
 	}
 
 }

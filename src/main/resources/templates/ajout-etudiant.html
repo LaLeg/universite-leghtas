@@ -3,8 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <title>Ajout Etudiant</title>
+<link rel="stylesheet" type="text/css" th:href="@{css/formulaire.css}">
 </head>
 <body>
+<div class="form-style-5">
 <form th:action="@{add-etudiant}"method="POST" th:object="${ajoutEtudiant}">
 <input type="text"
 			th:field="*{id}" placeholder="id" id="id" hidden=""/><br>
@@ -20,6 +22,6 @@
 			th:field="*{sexe}" placeholder="sexe" id="sexe" /><br>
 			<input type="submit" value="Ajouter"/>
 </form>
-
+</div>
 </body>
 </html>

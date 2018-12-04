@@ -3,8 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <title>Modifier Etudiant</title>
+<link rel="stylesheet" type="text/css" th:href="@{css/formulaire.css}">
 </head>
 <body>
+<div class="form-style-5">
 <form th:action="@{modif-etudiant}"method="POST" th:object="${etudiantForm}">
 <input type="text"
 			th:field="*{id}" placeholder="id" id="id" hidden=""/><br>
@@ -20,5 +22,6 @@
 			th:field="*{sexe}" placeholder="sexe" id="sexe" /><br>
 			<input type="submit" value="Modifier"/>
 </form>
+</div>
 </body>
 </html>

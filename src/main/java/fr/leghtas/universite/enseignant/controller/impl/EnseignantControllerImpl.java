@@ -18,6 +18,7 @@ import fr.leghtas.universite.enseignant.domain.Enseignant;
 public class EnseignantControllerImpl implements IEnseignantController {
 	@Autowired
 	private IEnseignantBuisiness enseignantBuisiness;
+	public static final String REDIRECT_ENSEIGNANTS = "redirect:/enseignants";
 
 	@Override
 	@RequestMapping("/enseignants")
@@ -51,9 +52,7 @@ public class EnseignantControllerImpl implements IEnseignantController {
 	public String addEnseignant(Model model, @ModelAttribute Enseignant enseignant) {
 
 		enseignantBuisiness.saveEnseignant(enseignant);
-		return "redirect:/enseignants";
-		// TODO Auto-generated method stub
-
+		return REDIRECT_ENSEIGNANTS;
 	}
 
 	@Override
@@ -61,7 +60,7 @@ public class EnseignantControllerImpl implements IEnseignantController {
 	public String supprimerEnseignant(Model model, @RequestParam Integer id) {
 		enseignantBuisiness.supprimerEnseignant(id);
 
-		return "redirect:/enseignants";
+		return REDIRECT_ENSEIGNANTS;
 	}
 
 }

@@ -1,5 +1,0 @@
-@charset "ISO-8859-1";
-td, tr, th, table {
-	border: green 3px solid;
-	border-collapse: collapse;
-}

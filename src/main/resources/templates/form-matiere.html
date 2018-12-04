@@ -3,8 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <title>Formulaire Ajout Matiere</title>
+<link rel="stylesheet" type="text/css" th:href="@{css/formulaire.css}">
 </head>
 <body>
+<div class="form-style-5">
 	<form th:action="@{add-matiere}" method="POST"
 		th:object="${ajoutFormMatiere}">
 		<input type="text" th:field="*{id}" placeholder="id" id="id" hidden="" /><br>
@@ -22,5 +24,6 @@
 				th:text="${e.nom + ' ' + e.prenom}" th:value="${e.id}"></option>
 		</select> <br /> <input type="submit" value=valider />
 		</form>
+		</div>
 </body>
 </html>

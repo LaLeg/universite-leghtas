@@ -3,8 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <title>Ajout Enseignant</title>
+<link rel="stylesheet" type="text/css" th:href="@{css/formulaire.css}">
 </head>
 <body>
+<div class="form-style-5">
 <form th:action="@{add-enseignant}" method="POST" th:object="${ajoutEnseignant}">
  <input type="text"
 			th:field="*{id}" placeholder="id" id="id" hidden=""/><br>
@@ -25,5 +27,6 @@
 <input type="submit" value="Ajouter"/>
 
 </form>
+</div>
 </body>
 </html>
